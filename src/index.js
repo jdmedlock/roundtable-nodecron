@@ -1,16 +1,10 @@
 import cron from 'node-cron'
-import * as dotenv from 'dotenv'
 
-dotenv.config()
-
-const sleep = (secondsToSleep) => {
-  if (secondsToSleep === 0) {
-    return new Promise(resolve => null)
-  }
+const sleep = async (secondsToSleep) => {
   return new Promise(resolve => setTimeout(resolve, secondsToSleep*1000))
 }
 
-const displayGreeting = () => {
+const displayGreeting = async () => {
   const currentDate = new Date()
   const displayDateTime = new Intl.DateTimeFormat('en-US', {
     dateStyle: 'full',
@@ -21,6 +15,6 @@ const displayGreeting = () => {
 }
 
 // Run the scheduled task
-cron.schedule(`* */1 * * * *`, async () => { // Test to run once every minute
+cron.schedule(`5-40 * * * * *`, async () => { // Test to run every minute at second 5-40
   displayGreeting()
 })
