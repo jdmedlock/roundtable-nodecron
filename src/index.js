@@ -15,6 +15,12 @@ const displayGreeting = async () => {
 }
 
 // Run the scheduled task
-cron.schedule(`5-40 * * * * *`, async () => { // Test to run every minute at second 5-40
+cron.schedule(`0-59 * * * * *`, async () => { // Test to run every minute at second 5-40
   displayGreeting()
 })
+
+/*
+for (let i = 0; i < 10000; ++i) {
+  console.log(`Hi Regina ${ i }`)
+}
+*/
