@@ -23,15 +23,3 @@ cron.schedule(`5-40 * * * * *`, async () => { // Test to run every other minute
 })
 
 console.log('task is scheduled')
-/*
-sleep(25).then(() => {
-  cron.stop() // TODO: Research why this fails
-  console.log('task is stopped')
-})
-*/
-
-/*
-for (let i = 0; i < 10000; ++i) {
-  console.log(`Hi Sandramsc ${ i }`)
-}
-*/
