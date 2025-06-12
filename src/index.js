@@ -12,14 +12,14 @@ const displayGreeting = async () => {
     timeStyle: 'long',
     timeZone: 'America/Chicago'
   }).format(currentDate)
-  console.log('Hello world @', displayDateTime)
+  console.log(`Hello world @ ${ displayDateTime }`)
 }
 
 // Run the scheduled task
-//cron.schedule(`5-40 * * * * *`, async () => { // Test to run every minute at second 5-40
-//cron.schedule(`10,20,30 * * * * *`, async () => { // Test to run every 10 seconds
-cron.schedule(`5-40 * * * * *`, async () => { // Test to run every other minute
-  displayGreeting()
-})
+(async () => {
+  cron.schedule(`30 * * * * *`, async () => { // Run every 30 seconds
+    await displayGreeting()
+  })
 
-console.log('task is scheduled')
+  console.log(`${ new Date().toISOString() } task is scheduled`)
+}) ()
