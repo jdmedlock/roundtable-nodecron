@@ -17,7 +17,9 @@ const displayGreeting = async () => {
 
 // Run the scheduled task
 (async () => {
-  cron.schedule(`30 * * * * *`, async () => { // Run every 30 seconds
+  //cron.schedule(`30 * * * * *`, async () => { // Run every 30 seconds
+  //cron.schedule(`0-30/2 * * * * *`, async () => { // Run every 2 seconds in first 30 seconds of each minute
+  cron.schedule(`0-59/2 * * * *`, async () => { // Run every other minute
     await displayGreeting()
   })
 
